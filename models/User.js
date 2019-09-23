@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: { type: String },
   isAdmin: Boolean,
   googleID: String,
-  image: String,
+  avatar: String,
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
