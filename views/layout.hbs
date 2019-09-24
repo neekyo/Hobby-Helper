@@ -22,49 +22,120 @@
   {{/if}}
 
   {{#if theUser}}
-  <img style="width: 300px" src="{{theUser.profileImage}}"
-  {{/if}}
-
-  <nav class="navbar navbar-inverse navBar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Hobby Helper</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-      </ul>
-      {{#if currentUser}}
-      <ul class = "right-nav">
+  <img style="width: 300px" src="{{theUser.profileImage}}" {{/if}} <nav class="navbar navbar-inverse navBar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Hobby Helper</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+    </ul>
+    {{#if currentUser}}
+    <ul class="right-nav">
       <p>Welcome, {{currentUser.username}}{{currentUser.displayName}}!</p>
       <a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-      </ul>
-      {{else}}
-      <ul class="nav navbar-nav navbar-right">
-        <li class="rainbow-button"><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li> 
-        <li class="rainbow-button"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>   
-      {{/if}}  
-        
-      </ul>
-    </div>
+    </ul>
+    {{else}}
+    <ul class="nav navbar-nav navbar-right">
+      <li class="rainbow-button"><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li class="rainbow-button"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+      {{/if}}
+
+    </ul>
+  </div>
 
   </nav>
 
-  {{{body}}}
+{{{body}}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+<a href="/sports">Movies</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/tv">Televison</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/celebrities">Celebrities</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/sports">Sports</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <a href="/music">Music</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/games">Games</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/coding">Coding</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/dance">Dance</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+<a href="/acting">Acting</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/outdoors">Outdoors</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/fitness">Fitness</a>
+    </div>
+    <div class="col-sm-3">
+<a href="/fashion">Fashion</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+<a href="/cooking">Cooking</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/gardeing">Gardening</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/photography">Photography</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/painting">Painting</a> 
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+<a href="/drawing">Drawing</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/hiking">Hiking</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/shopping">Shopping</a> 
+    </div>
+    <div class="col-sm-3">
+<a href="/learning">Learning</a> 
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>
 
-{{!-- <a href="/all">All Chatrooms</a>
-<a href="/movies">Movies</a>
-<a href="/tv">Televison</a>
-<a href="/celebrities">Celebrities</a>
-<a href="/sports">Sports</a>
-<a href="/music">Music</a>
-<a href="/games">Video Games</a>
-<a href="/coding">Coding</a>
-<a href="/dance">Dance</a>
-<a href="/acting">Acting</a>
-<a href="/outdoors">Outdoors</a>
-<a href="/fitness">Fitness</a>
-<a href="/fashion">Fashion</a>
-<a href="/cooking">Cooking</a> --}}
+
+
