@@ -1,16 +1,15 @@
-const express = require('express');
-const router  = express.Router();
-
-const User    = require('../models/User');
-const bcrypt  = require('bcryptjs');
-
-const passport = require("passport");
+const express         = require('express');
+const router          = express.Router();
+const User            = require('../models/User');
+const bcrypt          = require('bcryptjs');
+const passport        = require("passport");
+const magicUploadTool = require('../config/cloudinary-settings');
 
 router.get('/signup', (req, res, next)=>{
     res.render('user-views/signup')
 })
 
-router.post('/signup', (req, res, next)=>{
+router.post('/signup',magicUploadTool.single('the-image-input-name') ,(req, res, next)=>{
     const username = req.body.theUsername;
     const password = req.body.thePassword;
 
@@ -21,6 +20,16 @@ router.post('/signup', (req, res, next)=>{
         username: username,
         password: hash
     })
+    let userObj = {};
+    userObj.username = username;
+    userObj.password = hash;
+
+    if(req.file){
+        userObj.profileImage = req.file.url
+    }
+
+
+    User.create(userObj)
     .then(()=>{
         res.redirect('/')
     })
@@ -34,7 +43,7 @@ router.get("/login", (req, res, next) => {
   });
   
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/profile",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
