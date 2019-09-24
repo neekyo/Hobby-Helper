@@ -93,4 +93,11 @@ router.get(
   })
 );
 
+
+router.post('/delete-my-account', (req, res, next) => {
+  User.findByIdAndDelete(req.user._id)
+    .then(console.log("deleted"))
+    .catch(err => next(err))
+})
+
 module.exports = router;
