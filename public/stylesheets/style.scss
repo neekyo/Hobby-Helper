@@ -7,6 +7,12 @@ a {
   color: #dc006c;
 }
 
+.profPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo {
   font: 84px 'Arial Narrow', sans-serif;
   color: #fefefe; 
@@ -97,3 +103,18 @@ a {
 @keyframes slidebg {
   to {
     background-position: 20vw; } }
+
+form p,
+h1,
+.profPic,
+form label {
+  color: #fff;
+}
+
+.btn-add {
+  background: gray;
+}
+
+.profPic input {
+  margin-left: 5px;
+}
