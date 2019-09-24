@@ -1,21 +1,22 @@
 require('dotenv').config();
 
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express = require('express');
-const favicon = require('serve-favicon');
-const hbs = require('hbs');
-const mongoose = require('mongoose');
-const logger = require('morgan');
-const path = require('path');
-const session = require("express-session");
-const bcrypt = require('bcryptjs');
-const MongoStore = require("connect-mongo")(session);
-const flash = require("express-flash")
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const User    = require('./models/User');
+const bodyParser     = require('body-parser');
+const cookieParser   = require('cookie-parser');
+const express        = require('express');
+const favicon        = require('serve-favicon');
+const hbs            = require('hbs');
+const mongoose       = require('mongoose');
+const logger         = require('morgan');
+const path           = require('path');
+const session        = require("express-session");
+const bcrypt         = require('bcryptjs');
+const MongoStore     = require("connect-mongo")(session);
+const flash          = require("express-flash")
+const passport       = require("passport");
+const LocalStrategy  = require("passport-local").Strategy;
+const User           = require('./models/User');
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const SlackStrategy  = require("passport-slack").Strategy;
 
 
 mongoose.Promise = Promise;
@@ -132,7 +133,7 @@ passport.use(
           }
 
           User.create({
-             googleID: profile.id ,
+             googleID: profile.id,
              isAdmin: false,
              image: theImage,
              username: profile._json.name
@@ -144,6 +145,39 @@ passport.use(
             .catch(err => done(err)); 
         })
         .catch(err => done(err)); 
+    }
+  )
+);
+
+passport.use(
+  new SlackStrategy(
+    {
+      clientID: process.env.SLACK_CLIENT_ID,
+      clientSecret: process.env.SLACK_CLIENT_SECRET,
+      callbackURL: "/auth/slack/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Slack account details:", profile);
+
+      User.findOne({ slackID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({
+           slackID: profile.id,
+           username: profile._json.name
+
+          })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err)); // closes User.create()
+        })
+        .catch(err => done(err)); // closes User.findOne()
     }
   )
 );

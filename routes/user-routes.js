@@ -42,8 +42,12 @@ router.post("/login", passport.authenticate("local", {
 
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/login");
+    res.redirect("/");
   });
+
+router.get("/profile", (req, res, next) => {
+  res.render("user-views/profile", { "error": req.flash("error") });
+});
 
 router.get('/secret', (req, res, next)=>{
     if(req.session.currentuser){
@@ -66,9 +70,18 @@ router.get(
 router.get(
     "/google/callback",
     passport.authenticate("google", {
-      successRedirect: "/movies",
+      successRedirect: "/profile",
       failureRedirect: "/" 
     })
   );
+
+router.get("/auth/slack", passport.authenticate("slack"));
+router.get(
+  "/auth/slack/callback",
+  passport.authenticate("slack", {
+    successRedirect: "/profile",
+    failureRedirect: "/" // here you would navigate to the classic login page
+  })
+);
 
 module.exports = router;

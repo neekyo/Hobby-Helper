@@ -1,9 +1,7 @@
-<h1>This is your profile</h1>
-
-<h3>Welcome {{theUser.username}}</h3>
+<h1>Welcome to your profile!</h1>
 
 <form action="/account/delete-my-account" method="POST">
 <button>Delete My Account</button>
-</form>
+</form> 
 
-<img style="width: 400px" src="{{theUser.image}}">
+<img style="width: 400px" src="{{currentUser.image}}">
