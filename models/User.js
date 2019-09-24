@@ -10,6 +10,7 @@ const userSchema = new Schema({
   avatar: String,
   displayName: String,
   slackPic: String,
+  googlePic: String,
   profileImage: {type: String, default: ""},
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

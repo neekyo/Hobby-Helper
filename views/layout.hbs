@@ -22,26 +22,30 @@
   {{/if}}
 
   {{#if theUser}}
-  <img style="width: 300px" src="{{theUser.profileImage}}" {{/if}} <nav class="navbar navbar-inverse navBar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Hobby Helper</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-    </ul>
-    {{#if currentUser}}
-    <ul class="nav navbar-nav navbar-right">
-      <li class="rainbow-button">Welcome, {{currentUser.username}}{{currentUser.displayName}}!</li>
-      <li class="rainbow-button><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-    </ul>
+  <img style="width: 300px" src="{{theUser.profileImage}}"
+  {{/if}}
+
+  <nav class="navbar navbar-inverse navBar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Hobby Helper</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+      </ul>
+      {{#if currentUser}}
+      <ul class = "right-nav">
+      <p>Welcome, {{currentUser.username}}{{currentUser.displayName}}!</p>
+      <a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+      </ul>
       {{else}}
       <ul class="nav navbar-nav navbar-right">
-        <li class="rainbow-button"><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-        <li class="rainbow-button"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li class="rainbow-button"><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li> 
+        <li class="rainbow-button"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>   
+      {{/if}}  
+        
       </ul>
-      {{/if}}
-  </div>
+    </div>
 
   </nav>
 

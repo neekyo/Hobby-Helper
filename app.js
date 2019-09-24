@@ -135,7 +135,7 @@ passport.use(
           User.create({
              googleID: profile.id,
              isAdmin: false,
-             image: theImage,
+             googlePic: theImage,
              username: profile._json.name
 
             })

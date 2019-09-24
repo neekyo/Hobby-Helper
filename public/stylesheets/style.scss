@@ -118,3 +118,15 @@ form label {
 .profPic input {
   margin-left: 5px;
 }
+
+.right-nav {
+  display:flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  
+}
+
+.right-nav p {
+  margin-right: 20px;
+  color: white;
+}
