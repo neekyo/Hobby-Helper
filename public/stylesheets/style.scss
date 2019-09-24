@@ -1,7 +1,22 @@
-body {
-  background-image: url("background_image.jpg");
+#index {
+  background-image: url("/images/background_image.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
+.title {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navBar {
+  margin: 0;
+  padding: 0;
+}
 
 .or {
   padding-top: 15px;
