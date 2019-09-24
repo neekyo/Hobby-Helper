@@ -169,10 +169,11 @@ passport.use(
 
           User.create({
            slackID: profile.id,
-           username: profile._json.name
-
+           displayName: profile.displayName,
+           slackPic: profile.user.image_512
           })
             .then(newUser => {
+              console.log(newUser)
               done(null, newUser);
             })
             .catch(err => done(err)); // closes User.create()
