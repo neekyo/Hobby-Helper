@@ -135,11 +135,14 @@ form label {
 
 img {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+    border-radius: 2px;
 }
 
 a {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 a:hover {
@@ -164,14 +167,32 @@ a:hover {
 }
 
 #footer{
-  width: auto;
-  height: 60px;
+  width: 100%;
+  height: 50px;
   background-color: #DC006C;
   margin-top: 25px;
+  position: fixed;
+  bottom: 0;
 } 
 
 #footer img {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;   
+}
+
+#footer a {
+  color: white;
+  margin: 10px;
+  font-size: 30px;
+}
+
+.cards {
+  margin-bottom: 80px;
+}
+
+.cards img {
+  height: 200px;
+  width: 250px;
+  border-radius: 5px;
 }
