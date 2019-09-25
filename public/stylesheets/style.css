@@ -72,7 +72,8 @@ a {
 
 .navBar {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background-color: #DC006C; }
 
 .or {
   padding-top: 15px;
@@ -117,5 +118,24 @@ form label {
 img {
   max-width: 100%;
   height: auto; }
+
+a {
+  font-size: 15px; }
+
+a:hover {
+  color: white;
+  text-decoration: none; }
+
+.logout {
+  color: white; }
+
+.right-nav a {
+  color: white; }
+
+.btn-add:hover {
+  background-color: #DC006C; }
+
+.home {
+  margin-left: 2px; }
 
 /*# sourceMappingURL=style.css.map */
