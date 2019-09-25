@@ -114,4 +114,8 @@ form label {
   margin-right: 20px;
   color: white; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 /*# sourceMappingURL=style.css.map */
