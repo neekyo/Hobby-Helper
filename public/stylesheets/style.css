@@ -183,19 +183,12 @@ a:hover {
   padding-top: 10px;
   font-size: 15px; }
 
-#chat-box {
-  background-color: #9d9d9d;
-  width: auto;
-  margin: 25px 48px;
-  height: 50px;
-  color: white;
-  font-size: 15px;
-  text-align: left;
-  border-radius: 5px; }
-
-#chat-box p {
-  margin-left: 10px;
-  padding-top: 7px; }
+textarea {
+  border: 1px solid #DC006C;
+  width: 90%;
+  margin: 20px 0;
+  margin-right: 68px;
+  padding: 3px; }
 
 .chatTitle {
   font-size: 40px;
@@ -212,8 +205,8 @@ a:hover {
   margin-left: 94.8%;
   background-color: #DC006C;
   position: relative;
-  bottom: 2.2vw;
-  right: 2vw; }
+  bottom: 4.35vw;
+  right: 1.5vw; }
 
 #divider > p {
   position: relative;
@@ -222,6 +215,7 @@ a:hover {
 
 #divider > p > button {
   border-radius: 5px;
-  padding: 0.4vw 1vw; }
+  padding: 0.5vw 1vw;
+  margin-top: 4.5px; }
 
 /*# sourceMappingURL=style.css.map */
