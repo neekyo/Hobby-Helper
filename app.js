@@ -17,6 +17,7 @@ const LocalStrategy  = require("passport-local").Strategy;
 const User           = require('./models/User');
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const SlackStrategy  = require("passport-slack").Strategy;
+// const axios          = require("axios");
 
 
 mongoose.Promise = Promise;
@@ -87,6 +88,8 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+console.log(path.join(__dirname, 'public'))
+
 // default value for title local
 app.locals.title = 'Hobby Helper';
 
@@ -100,7 +103,8 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
+  if (req.user) req.user.isAdmin = req.user.role === 'Admin'
+  res.locals.currentUser = req.user; 
   next();
  });
 

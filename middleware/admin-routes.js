@@ -6,7 +6,7 @@ const userAuth = async(req, res, next) => {
     next();
 }
 
-const adminAuth = (req, res, next) => {
+const adminAuth = async(req, res, next) => {
     if (!req.user) {
         req.flash('failure', 'please log in to use this feature')
         res.redirect('/login')
