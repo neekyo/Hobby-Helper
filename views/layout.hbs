@@ -29,9 +29,11 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active home"><a href="/">Home</a></li>
-    </ul>
+    </ul> 
+    {{#if currentUser}}
     <ul class="nav navbar-nav">
       <li class="active home"><a href="/profile">My Profile</a></li>
+    {{/if}}
     </ul>
     {{#if currentUser}}
     <ul class="right-nav">
@@ -49,6 +51,10 @@
   </nav>
 
 {{{body}}}
+
+<footer id="footer">
+<img src"https://www.nicepng.com/png/detail/20-207227_up-arrow-white-up-arrow-png.png">
+</footer>
 
 </body>
 

@@ -162,3 +162,16 @@ a:hover {
 .home {
   margin-left: 2px;
 }
+
+#footer{
+  width: auto;
+  height: 60px;
+  background-color: #DC006C;
+  margin-top: 25px;
+} 
+
+#footer img {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
