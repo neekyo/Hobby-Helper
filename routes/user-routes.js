@@ -84,7 +84,7 @@ router.get(
     })
   );
 
-router.get("/auth/slack", passport.authenticate("slack"));
+router.get("/auth/slack/", passport.authenticate("slack"));
 router.get(
   "/auth/slack/callback",
   passport.authenticate("slack", {
@@ -93,11 +93,14 @@ router.get(
   })
 );
 
-
 router.post('/delete-my-account', (req, res, next) => {
   User.findByIdAndDelete(req.user._id)
     .then(console.log("deleted"))
     .catch(err => next(err))
 })
+
+router.get("/movies", (req, res, next) => {
+  res.render("chatpage", { "error": req.flash("error") });
+});
 
 module.exports = router;

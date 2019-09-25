@@ -167,4 +167,35 @@ a:hover {
   width: 250px;
   border-radius: 5px; }
 
+#comment-box {
+  margin: 0px 50px 0 50px;
+  height: 72vh;
+  background-color: #9D9D9D;
+  border-radius: 5px; }
+
+#comment-box p {
+  color: white;
+  text-align: left;
+  margin-left: 10px;
+  padding-top: 10px;
+  font-size: 15px; }
+
+#chat-box {
+  background-color: #9d9d9d;
+  width: auto;
+  margin: 30px 48px;
+  height: 40px;
+  color: white;
+  font-size: 15px;
+  text-align: left;
+  border-radius: 5px; }
+
+#chat-box p {
+  margin-left: 10px;
+  padding-top: 7px; }
+
+.chatTitle {
+  font-size: 40px;
+  margin: 0; }
+
 /*# sourceMappingURL=style.css.map */
