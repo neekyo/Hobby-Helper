@@ -1,6 +1,7 @@
 const express         = require('express');
 const router          = express.Router();
 const User            = require('../models/User');
+const Comment         = require('../models/Comment');
 const bcrypt          = require('bcryptjs');
 const passport        = require("passport");
 const magicUploadTool = require('../config/cloudinary-settings');
@@ -99,8 +100,11 @@ router.post('/delete-my-account', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get("/movies", (req, res, next) => {
-  res.render("chatpage", { "error": req.flash("error") });
+router.get("/categories/:theCategory", (req, res, next) => {
+let cat = req.params.theCategory;
+  Comment.find({category: cat})
+  res.render("chatpage", { "error": req.flash("error"), theCat: cat });
 });
 
 module.exports = router;
+
