@@ -31,12 +31,16 @@
     <ul class="nav navbar-nav">
       <li class="active home"><a href="/">Home</a></li>
     </ul>
-
     {{#if currentUser}}
     <ul class="nav navbar-nav">
       <li class="active home"><a href="/profile">My Profile</a></li>
-      {{/if}}
+    {{/if}}
     </ul>
+    {{#if currentUser.isAdmin}}
+    <ul class="nav navbar-nav">
+      <li class="active home"><a href="/secret">Secret</a></li>
+    </ul>
+    {{/if}}
     {{#if currentUser}}
     <ul class="right-nav">
       <p>Welcome, {{currentUser.username}}{{currentUser.displayName}}!</p>

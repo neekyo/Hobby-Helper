@@ -60,7 +60,7 @@ router.get("/profile", (req, res, next) => {
 });
 
 router.get('/secret', (req, res, next)=>{
-    if(req.session.currentuser){
+    if(req.user.isAdmin){
         res.render('user-views/secret', {theUser: req.session.currentuser})
     } else{
         res.redirect('/')
