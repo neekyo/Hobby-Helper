@@ -248,4 +248,13 @@ navbar-brand a {
 .sub {
   height: 38px; }
 
+.msgDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid magenta; }
+
+.msgDiv > h6 {
+  text-decoration: underline; }
+
 /*# sourceMappingURL=style.css.map */

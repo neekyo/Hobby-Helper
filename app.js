@@ -18,6 +18,7 @@ const User           = require('./models/User');
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const SlackStrategy  = require("passport-slack").Strategy;
 const axios          = require("axios");
+const multer         = require("multer");
 // const { userAuth } = require('../middleware/auth')
 
 

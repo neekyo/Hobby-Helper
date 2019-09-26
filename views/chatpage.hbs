@@ -1,14 +1,14 @@
 <p class="chatTitle logo">{{theCat}}</p>
 
 <div id="comment-box">
-  {{#each comments}}
+  {{!-- {{#each comments}}
   <div>{{this.body}}</div>
-  {{/each}}
+  {{/each}} --}}
 </div>
 
 <form id="chatb0x">
 <textarea name="comment" form="usrform" placeholder="Enter text here..."></textarea>
   <div id="divider">
-    <p><button class="btn-add submit sub">Submit</button></p>
+    <p><button id="msgAdd" class="btn-add submit sub">Submit</button></p>
   </div>
 </form>
