@@ -1,12 +1,6 @@
-// import Axios from "axios";
-
 document.addEventListener('DOMContentLoaded', () => {
   console.log('IronGenerator JS imported successfully!');
-  
-
-
 }, false);
-
 
 document.querySelector('#msgAdd').addEventListener("click", function(e) {
   e.preventDefault()
@@ -16,15 +10,12 @@ document.querySelector('#msgAdd').addEventListener("click", function(e) {
   }).catch(err => console.log("error posting msg ----- ", err));
 }, false)
 
-
 setInterval(() => {
-  // event.preventDefault()
 axios.get(`/api/comments/${document.querySelector('.chatTitle').innerHTML}`)
 .then(response => {
-  console.log("the response after getting msg's  <><><><><>><>><>> ", response.data)
+  console.log("the response after getting msg's  <><><><><>><>><>>", response.data)
   document.querySelector('#comment-box').innerHTML = ''
 
-  
   response.data.forEach(oneMsg => {
     let newDiv = document.createElement('div')
     newDiv.setAttribute('class', 'msgDiv')
@@ -38,7 +29,6 @@ axios.get(`/api/comments/${document.querySelector('.chatTitle').innerHTML}`)
 
     document.querySelector('#comment-box').append(newDiv)
   })
-
 }).catch(err => console.log("error getting chat <<<<<< ", err));
   
 },1000)

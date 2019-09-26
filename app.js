@@ -111,11 +111,6 @@ app.use((req, res, next) => {
   next();
  });
 
-// res.locals.theUser = req.user;
-// res.locals.successMessage = req.flash('success');
-// res.locals.errorMessage = req.flash('error');
-// next();
-
 passport.use(
   new GoogleStrategy(
     {
@@ -192,9 +187,6 @@ passport.use(
 
 const user = require('./routes/user-routes');
 app.use('/', user)
-
-// const auth = require('./routes/auth');
-// app.use('/', auth)
 
 const index = require('./routes/index');
 app.use('/', index);

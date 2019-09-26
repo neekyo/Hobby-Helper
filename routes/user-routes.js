@@ -15,10 +15,8 @@ router.post('/signup', magicUploadTool.single('photo') ,(req, res, next)=>{
     const username = req.body.theUsername;
     const password = req.body.thePassword;
     const role = req.body.theRole;
-
     const salt  = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-
 
     User.create({
         username: username,
@@ -115,7 +113,7 @@ let cat = req.params.theCategory;
 });
 
 router.post('/comments', (req, res, next) => {
-  console.log("the req body <><><><>><><>><>><<><><><>< ", req.body);
+  console.log("the req body <><><><>><><>><>><<><><><><", req.body);
   
   let author = req.user.id
   let body = req.body.body
@@ -142,20 +140,3 @@ router.get("/api/comments/:theCategory", (req, res, next) => {
   }); 
 
 module.exports = router;
-
-
-// grab through dom front end the .value of the form and make an axios post request to the route above
-
-// document.querySelector("#chatb0x > textarea").value
-
-// axios.post('/comments', {
-//   author: author,
-//   body: body,
-//   category: category,
-// })
-// .then(function (response) {
-//   console.log(response);
-// })
-// .catch(function (error) {
-//   console.log(error);
-// });

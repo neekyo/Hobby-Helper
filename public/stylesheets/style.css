@@ -252,9 +252,14 @@ navbar-brand a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid magenta; }
+  border: 1px solid #DC006C; }
 
 .msgDiv > h6 {
-  text-decoration: underline; }
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold; }
+
+.msgDiv h5, h6 {
+  margin-left: 10px; }
 
 /*# sourceMappingURL=style.css.map */
