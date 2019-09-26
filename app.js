@@ -17,12 +17,14 @@ const LocalStrategy  = require("passport-local").Strategy;
 const User           = require('./models/User');
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const SlackStrategy  = require("passport-slack").Strategy;
-// const axios          = require("axios");
+const axios          = require("axios");
+// const { userAuth } = require('../middleware/auth')
+
 
 
 mongoose.Promise = Promise;
 mongoose
-  .connect(proccess.env.MONGODB_URI, {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -189,6 +191,9 @@ passport.use(
 
 const user = require('./routes/user-routes');
 app.use('/', user)
+
+// const auth = require('./routes/auth');
+// app.use('/', auth)
 
 const index = require('./routes/index');
 app.use('/', index);

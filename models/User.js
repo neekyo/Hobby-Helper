@@ -11,7 +11,7 @@ const userSchema = new Schema({
   displayName: String,
   slackPic: String,
   googlePic: String,
-  profileImage: {type: String, default: ""},
+  profileImage: {type: String, default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyAV7m0L9Rc5P4AMI64BSir0BYOvkPU0vNSnSx0-6vhYDyS9X7"},
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 }); 

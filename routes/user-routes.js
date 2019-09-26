@@ -13,17 +13,20 @@ router.get('/signup', (req, res, next)=>{
 router.post('/signup',magicUploadTool.single('the-image-input-name') ,(req, res, next)=>{
     const username = req.body.theUsername;
     const password = req.body.thePassword;
+    const role = req.body.theRole;
 
     const salt  = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
     User.create({
         username: username,
-        password: hash
+        password: hash,
+        role: role,
     })
     let userObj = {};
     userObj.username = username;
     userObj.password = hash;
+    userObj.role = role;
 
     if(req.file){
         userObj.profileImage = req.file.url
@@ -31,7 +34,7 @@ router.post('/signup',magicUploadTool.single('the-image-input-name') ,(req, res,
 
     User.create(userObj)
     .then(()=>{
-        res.redirect('/profile')
+        res.redirect('/login')
     })
     .catch((err)=>{
         next(err)

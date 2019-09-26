@@ -5,31 +5,26 @@ const router = express.Router();
 const passport = require('passport')
 const { userAuth } = require('../middleware/auth')
 
+// router.post('/signup', (req, res, next) => {
+//     const salt = bcrypt.genSaltSync(10)
+//     const userData = {
+//         username: req.body.username,
+//         password: bcrypt.hashSync(req.body.password, salt),
+//         role: (req.user && req.user.role === "Admin") ? req.body.role : "Admin"
+//     }
 
-router.get('/signup', (req, res, next) => {
-    res.render('users/signup')
-});
-
-router.post('/signup', (req, res, next) => {
-    const salt = bcrypt.genSaltSync(10)
-    const userData = {
-        username: req.body.username,
-        password: bcrypt.hashSync(req.body.password, salt),
-        role: (req.user && req.user.role === "Admin") ? req.body.role : "User"
-    }
-
-    User.create(userData)
-        .then(user => {
-            req.session.currentUser = user
-            req.logIn(user, (err) => {
-                if (!err) {
-                    res.status(201).redirect('/')
-                    req.flash('success', 'Registered and logged in!');
-                } else next(err)
-            })
-        })
-        .catch(e => res.status(500).send(e))
-});
+//     User.create(userData)
+//         .then(user => {
+//             req.session.currentUser = user
+//             req.logIn(user, (err) => {
+//                 if (!err) {
+//                     res.status(201).redirect('/')
+//                     req.flash('success', 'Registered and logged in!');
+//                 } else next(err)
+//             })
+//         })
+//         .catch(e => res.status(500).send(e))
+// });
 
 router.get('/login', (req, res, next) => {
     res.render('users/login')
