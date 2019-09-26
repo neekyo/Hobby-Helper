@@ -92,7 +92,7 @@ router.get(
   "/auth/slack/callback",
   passport.authenticate("slack", {
     successRedirect: "/profile",
-    failureRedirect: "/" // here you would navigate to the classic login page
+    failureRedirect: "/"
   })
 );
 
@@ -112,8 +112,21 @@ let cat = req.params.theCategory;
   .catch(err => next(err))
 });
 
-// write a normal post route to create a comment - req.body - comment.create - dont res redirect, res json
-// grab through dom front end the .value of the form and make an axios post request to the route above
+router.post('/comments', (req, res, next) => {
+  let author = req.user.id
+  let body = req.body.body
+  let category = req.body.category
+  
+  Comment.create({
+    author: author,
+    body: body,
+    category: category,
+  })
+  .then((theComments)=>{  
+    res.json(theComments)
+  })
+  .catch(err => next(err))
+});
 
 router.get("/api/comments/:theCategory", (req, res, next) => {
   let cat = req.params.theCategory;
@@ -125,4 +138,6 @@ router.get("/api/comments/:theCategory", (req, res, next) => {
   }); 
 
 module.exports = router;
+
+// grab through dom front end the .value of the form and make an axios post request to the route above
 

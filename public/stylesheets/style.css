@@ -229,13 +229,13 @@ html {
 .search {
   width: 200px;
   position: absolute;
-  margin-left: 200px;
+  margin-left: 385px;
   margin-top: 7px; }
 
 .submit {
   position: relative;
-  margin-top: -46px;
-  height: 37px;
+  margin-top: -46.5px;
+  height: 34.7px;
   background-color: #222222;
   color: #DC006C; }
 
@@ -244,5 +244,8 @@ html {
 
 navbar-brand a {
   color: #9D9D9D; }
+
+.sub {
+  height: 38px; }
 
 /*# sourceMappingURL=style.css.map */
