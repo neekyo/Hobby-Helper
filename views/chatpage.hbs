@@ -1,7 +1,9 @@
 <p class="chatTitle logo">{{theCat}}</p>
 
 <div id="comment-box">
-  <p>(User) 69erboi: Movies yada yada yada</p>
+  {{#each comments}}
+  <div>{{this.body}}</div>
+  {{/each}}
 </div>
 
 <form id="chatb0x">

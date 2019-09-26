@@ -106,8 +106,23 @@ router.post('/delete-my-account', (req, res, next) => {
 router.get("/categories/:theCategory", (req, res, next) => {
 let cat = req.params.theCategory;
   Comment.find({category: cat})
-  res.render("chatpage", { "error": req.flash("error"), theCat: cat });
+  .then((theComments)=>{  
+    res.render("chatpage", { "error": req.flash("error"), theCat: cat, comments: theComments });
+  })
+  .catch(err => next(err))
 });
+
+// write a normal post route to create a comment - req.body - comment.create - dont res redirect, res json
+// grab through dom front end the .value of the form and make an axios post request to the route above
+
+router.get("/api/comments/:theCategory", (req, res, next) => {
+  let cat = req.params.theCategory;
+    Comment.find({category: cat})
+    .then((theComments)=>{  
+      res.json(theComments)
+    })
+    .catch(err => next(err))
+  }); 
 
 module.exports = router;
 
