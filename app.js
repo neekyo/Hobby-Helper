@@ -22,7 +22,7 @@ const SlackStrategy  = require("passport-slack").Strategy;
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/starter-code', {useMongoClient: true})
+  .connect(proccess.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {

@@ -29,10 +29,9 @@ router.post('/signup',magicUploadTool.single('the-image-input-name') ,(req, res,
         userObj.profileImage = req.file.url
     }
 
-
     User.create(userObj)
     .then(()=>{
-        res.redirect('/')
+        res.redirect('/profile')
     })
     .catch((err)=>{
         next(err)
@@ -98,6 +97,7 @@ router.post('/delete-my-account', (req, res, next) => {
   User.findByIdAndDelete(req.user._id)
     .then(console.log("deleted"))
     .catch(err => next(err))
+    res.redirect("/");
 })
 
 router.get("/categories/:theCategory", (req, res, next) => {
