@@ -262,4 +262,7 @@ navbar-brand a {
 .msgDiv h5, h6 {
   margin-left: 10px; }
 
+.round {
+  border-radius: 10px; }
+
 /*# sourceMappingURL=style.css.map */

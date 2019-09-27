@@ -1,9 +1,15 @@
 <h1>Welcome to your profile!</h1>
 <br>
 
-<img style="width: 200px" src="{{currentUser.slackPic}}">
-<img style="width: 200px" src="{{currentUser.googlePic}}">
-<img style="width: 200px" src="{{currentUser.profileImage}}">
+{{#if currentUser.slackPic}}
+  <img style="width: 200px" class="round" src="{{currentUser.slackPic}}">
+  {{else}}
+    {{#if currentUser.googlePic}}
+      <img style="width: 200px" class="round" src="{{currentUser.googlePic}}">
+      {{else}}
+        <img style="width: 200px" class="round" src="{{currentUser.profileImage}}">
+    {{/if}}
+{{/if}}
 
 <form action="/delete-my-account" method="POST">
 <br>
