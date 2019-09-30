@@ -1,3 +1,3 @@
 # Hobby Helper
-[View Here!](https://neekyo.github.io/Hobby-Helper/ "View here")
+[View Here!](http://hobbyhelper.herokuapp.com/ "View here")
 ![preview](preview.gif)
