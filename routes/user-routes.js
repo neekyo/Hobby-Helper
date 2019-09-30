@@ -37,6 +37,7 @@ router.post('/signup', magicUploadTool.single('photo') ,(req, res, next)=>{
         res.redirect('/login')
     })
     .catch((err)=>{
+      res.redirect('/login')
         next(err)
     })
 })
@@ -46,8 +47,8 @@ router.get("/login", (req, res, next) => {
   });
   
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/login",
-    failureRedirect: "/signup",
+    successRedirect: "/profile",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
 }));
