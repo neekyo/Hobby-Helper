@@ -58,8 +58,12 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
   });
 
-router.get("/profile", (req, res, next) => {
+  router.get("/profile", (req, res, next) => {
+    if(req.user){
   res.render("user-views/profile", { "error": req.flash("error") });
+    } else {
+      res.redirect('/login')
+    }
 });
 
 router.get('/secret', (req, res, next)=>{
