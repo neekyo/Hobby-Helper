@@ -20,7 +20,7 @@ const SlackStrategy = require('passport-slack').Strategy;
 
 const uri = process.env.MONGODB_LOCAL || process.env.MONGODB_URI || `mongodb://localhost/please-set-process-env-mongodb-uri`
 
-module.export = mongoose.connect(uri, {
+mongoose.connect(uri, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useCreateIndex: true
@@ -193,23 +193,6 @@ passport.use(
         }
     )
 );
-
-function search() {
-    var name = document.getElementById('searchForm').elements['searchItem'].value;
-    var pattern = name.toLowerCase();
-    var targetId = '';
-
-    var divs = document.getElementsByClassName('col-sm-3');
-    for (var i = 0; i < divs.length; i++) {
-        var para = divs[i].getElementsByTagName('a');
-        var index = para[0].innerText.toLowerCase().indexOf(pattern);
-        if (index != -1) {
-            targetId = divs[i].parentNode.id;
-            document.getElementById(targetId).scrollIntoView();
-            break;
-        }
-    }
-}
 
 const user = require('./routes/user-routes');
 app.use('/', user);
