@@ -53,16 +53,16 @@ app.use(
 );
 
 passport.serializeUser((user, cb) => {
-		cb(null, user._id);
+	cb(null, user._id);
 });
 
 passport.deserializeUser((id, cb) => {
-		User.findById(id, (err, user) => {
-				if (err) {
-						return cb(err);
-				}
-				cb(null, user);
-		});
+	User.findById(id, (err, user) => {
+		if (err) {
+			return cb(err);	
+		}
+		cb(null, user);
+	});
 });
 
 app.use(flash());
