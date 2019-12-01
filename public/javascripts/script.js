@@ -15,7 +15,6 @@ window.onload = () => {
         setInterval(() => {
             axios.get(`/api/comments/${document.querySelector('.chatTitle').innerHTML}`)
                 .then(response => {
-                    console.log("the response after getting msg's  <><><><><>><>><>>", response.data)
                     document.querySelector('#comment-box').innerHTML = ''
 
                     response.data.forEach(oneMsg => {
