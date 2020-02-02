@@ -17,11 +17,15 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const SlackStrategy = require('passport-slack').Strategy;
 
 mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useCreateIndex: true,
-		useUnifiedTopology: true
-	})
+	.connect(
+		process.env.MONGO_URI,
+		{
+			useNewUrlParser: true,
+			useCreateIndex: true,
+			useUnifiedTopology: true
+		},
+		console.log(process.env)
+	)
 	.then(() => {
 		console.log('Connected to Mongo!');
 	})
