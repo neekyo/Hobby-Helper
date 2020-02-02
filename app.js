@@ -17,13 +17,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const SlackStrategy = require('passport-slack').Strategy;
-const axios = require('axios');
-const multer = require('multer');
-// const { userAuth } = require('../middleware/auth')
 
 mongoose.Promise = Promise;
 mongoose
-	.connect(process.env.MONGODB_URI, { useMongoClient: true })
+	.connect(process.env.MONGODB_URI, {
+		useNewUrlParser: true,
+		useCreateIndex: true,
+		useUnifiedTopology: true
+	})
 	.then(() => {
 		console.log('Connected to Mongo!');
 	})
@@ -84,7 +85,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Express View engine setup
-
 app.use(
 	require('node-sass-middleware')({
 		src: path.join(__dirname, 'public'),
@@ -100,13 +100,15 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 console.log(path.join(__dirname, 'public'));
 
-// default value for title local
+// Default value for title local
 app.locals.title = 'Hobby Helper';
 
 app.use(
 	session({
 		secret: 'shhh-super-sectet-key',
 		cookie: { maxAge: 60000 },
+		resave: true,
+		saveUninitialized: true,
 		store: new MongoStore({
 			mongooseConnection: mongoose.connection,
 			ttl: 24 * 60 * 60 // 1 day
