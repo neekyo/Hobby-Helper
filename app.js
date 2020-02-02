@@ -1,11 +1,9 @@
 require('dotenv').config();
-
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
-const hbs = require('hbs');
-const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const session = require('express-session');
@@ -18,9 +16,8 @@ const User = require('./models/User');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const SlackStrategy = require('passport-slack').Strategy;
 
-mongoose.Promise = Promise;
 mongoose
-	.connect(process.env.MONGODB_URI, {
+	.connect(process.env.MONGO_URI, {
 		useNewUrlParser: true,
 		useCreateIndex: true,
 		useUnifiedTopology: true
