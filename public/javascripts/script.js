@@ -28,12 +28,15 @@ document.querySelector('#msgDelete').addEventListener(
 	function(e) {
 		e.preventDefault();
 		axios
-			.post('/delete-post/{this._id', {
-				body: document.querySelector('#chatb0x > textarea').value,
-				category: document.querySelector('.chatTitle').innerHTML
-			})
+			.post(
+				'/delete-post/{this._id}',
+				{
+					// body: document.querySelector('#chatb0x > textarea').value,
+					// category: document.querySelector('.chatTitle').innerHTML
+				}
+			)
 			.then((response) => {
-				console.log('this is the new msg', response.data);
+				console.log('deleting message', response.data);
 			})
 			.catch((err) => console.log('error deleting msg', err));
 	},

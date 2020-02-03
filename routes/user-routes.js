@@ -141,4 +141,6 @@ router.get('/api/comments/:theCategory', (req, res, next) => {
 		.catch((err) => next(err));
 });
 
+router.post('/delete-post/{this._id}'), (req, res, next) => {};
+
 module.exports = router;
