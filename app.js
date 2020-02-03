@@ -1,4 +1,4 @@
-const keys = require('./config/keys');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -17,10 +17,10 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const SlackStrategy = require('passport-slack').Strategy;
 
 mongoose
-	.connect(keys.mongoURI, {
+	.connect(process.env.MONGO_URI, {
 		useNewUrlParser: true,
 		useCreateIndex: true,
-		useUnifiedTopology: true
+		useUnifiedTopology: true,
 	})
 	.then(() => {
 		console.log('Connected to Mongo!');
