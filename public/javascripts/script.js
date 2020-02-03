@@ -16,9 +16,9 @@ document.querySelector('#msgAdd').addEventListener(
 				category: document.querySelector('.chatTitle').innerHTML
 			})
 			.then((response) => {
-				console.log('new message >>>>>', response.data);
+				console.log('this is the new msg >>>>> ', response.data);
 			})
-			.catch((err) => console.log('error posting msg', err));
+			.catch((err) => console.log('error posting msg ----- ', err));
 	},
 	false
 );
@@ -33,9 +33,9 @@ document.querySelector('#msgDelete').addEventListener(
 				category: document.querySelector('.chatTitle').innerHTML
 			})
 			.then((response) => {
-				console.log('deleting message >>>>>', response.data);
+				console.log('this is the new msg >>>>> ', response.data);
 			})
-			.catch((err) => console.log('error deleting msg', err));
+			.catch((err) => console.log('error posting msg ----- ', err));
 	},
 	false
 );
