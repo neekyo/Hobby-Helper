@@ -25,7 +25,7 @@
   <img style="width: 300px" src="{{theUser.profileImage}}" {{/if}} <nav id="top" class="navbar navbar-inverse navBar">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Hobby Helper</a>
+      <a class="navbar-brand logout" href="/">Hobby Helper</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active home"><a href="/">Home</a></li>
@@ -48,7 +48,7 @@
     {{/if}}
     {{#if currentUser}}
     <ul class="right-nav">
-      <p>Welcome, {{currentUser.username}}{{currentUser.displayName}}!</p>
+      <p class="margin">Welcome, {{currentUser.username}}{{currentUser.displayName}}!</p>
       <a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
     </ul>
     {{else}}

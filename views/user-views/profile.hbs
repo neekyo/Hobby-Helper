@@ -1,4 +1,4 @@
-<h1>Welcome to your profile!</h1>
+<h1>Welcome to your profile {{currentUser.username}}!</h1>
 <br>
 
 {{#if currentUser.slackPic}}
@@ -13,6 +13,6 @@
 
 <form action="/delete-my-account" method="POST">
 <br>
-<button type="submit" class="btn-add">Delete My Account</button>
+<button type="submit" class="btn-add white">Delete My Account</button>
 </form> 
 
