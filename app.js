@@ -20,7 +20,7 @@ mongoose
 	.connect(process.env.MONGO_URI, {
 		useNewUrlParser: true,
 		useCreateIndex: true,
-		useUnifiedTopology: true,
+		useUnifiedTopology: true
 	})
 	.then(() => {
 		console.log('Connected to Mongo!');
@@ -192,7 +192,7 @@ passport.use(
 	)
 );
 
-function search() {
+const search = () => {
 	var name = document.getElementById('searchForm').elements['searchItem'].value;
 	var pattern = name.toLowerCase();
 	var targetId = '';
@@ -207,7 +207,7 @@ function search() {
 			break;
 		}
 	}
-}
+};
 
 const user = require('./routes/user-routes');
 app.use('/', user);

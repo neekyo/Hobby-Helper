@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/secret', adminAuth, (req, res, next) => {
-	console.log('adminnn paggeeee');
+	console.log('admin page');
 	res.render('user-views/secret');
 });
 
